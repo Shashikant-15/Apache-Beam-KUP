@@ -15,6 +15,13 @@ import java.util.List;
 
 /**
  *
+ a Beam pipeline to read the given CSV file of car ad data and compute the average price of different Cars. Save the output in another CSV file with headers [car avg_price]
+ Output sample file-
+ car,avg_price
+ Infiniti,29900.0
+ Ford,3500.0
+ Tesla,176900.0
+ TATA,112900.0
  */
 public class CarMemoryClass {
 
@@ -35,6 +42,7 @@ public class CarMemoryClass {
         options = PipelineOptionsFactory.create();
         Pipeline pipeline = Pipeline.create(options);
 
+        // applied pipeline to read the required file
         pipeline.apply(Create.of(list)).setCoder(StringUtf8Coder.of())
                 .apply("print-before", MapElements.via(new SimpleFunction<String, String>() {
                     @Override
@@ -58,6 +66,7 @@ public class CarMemoryClass {
                     }
                 }));
 
+        // run the applied pipeline for required file
        pipeline.run().waitUntilFinish();
     }
 

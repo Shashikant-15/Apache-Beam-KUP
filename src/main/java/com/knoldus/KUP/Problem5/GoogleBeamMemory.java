@@ -13,9 +13,13 @@ import org.slf4j.LoggerFactory;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 public class GoogleBeamMemory {
 
+        // LOGGER initializes as private
     private static final Logger LOGGER = LoggerFactory.getLogger(CarMemoryClass.class);
+
+    //  main method called
     public static void main(String[] args) {
 
         PipelineOptions options;
@@ -34,6 +38,7 @@ public class GoogleBeamMemory {
         options = PipelineOptionsFactory.create();
         Pipeline pipeline = Pipeline.create(options);
 
+            // applied pipeline to the required file
         pipeline.apply(Create.of(list)).setCoder(StringUtf8Coder.of())
                 .apply("print-before", MapElements.via(new SimpleFunction<String, String>() {
                     @Override
@@ -52,11 +57,13 @@ public class GoogleBeamMemory {
                 .apply("print-after", MapElements.via(new SimpleFunction<String, Void>() {
                     @Override
                     public Void apply(String input) {
-                        LOGGER.info(input);
+                        LOGGER.info(input);  // for LOGGER inputs
                         return null;
                     }
                 }));
 
+
+            // run pipeline to  required file
         pipeline.run().waitUntilFinish();
     }
 }

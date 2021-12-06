@@ -12,10 +12,11 @@ import org.apache.beam.sdk.values.TypeDescriptors;
 
 public class AveragePriceProcessing {
 
+    //  CSV_HEADER initializes as private for car & price
     private static final String CSV_HEADER = "car,price";
 
+    // main method called
     public static void main(String[] args) {
-
 
         final AveragePriceProcessingOptions averagePriceProcessingOptions = PipelineOptionsFactory
                 .fromArgs(args)
@@ -24,6 +25,7 @@ public class AveragePriceProcessing {
 
         Pipeline pipeline = Pipeline.create(averagePriceProcessingOptions);
 
+            // applied pipeline to read the required file
         pipeline.apply("Read-Lines", TextIO.read()
                         .from(averagePriceProcessingOptions.getInputFile()))
                 .apply("Filter-Header", Filter.by((String line) ->
@@ -38,6 +40,8 @@ public class AveragePriceProcessing {
                 .apply("Format-result", MapElements
                         .into(TypeDescriptors.strings())
                         .via(carCount -> carCount.getKey() + "," + carCount.getValue()))
+
+                // applied pipeline to write or modify the required file
                 .apply("WriteResult", TextIO.write()
                         .to(averagePriceProcessingOptions.getOutputFile())
                         .withoutSharding()
@@ -45,7 +49,7 @@ public class AveragePriceProcessing {
                         .withHeader("car,Avg_price"));
 
         pipeline.run();
-        System.out.println("pipeline executed successfully");
+        System.out.println("pipeline executed successfully");   // result outcomes message
     }
 
     public interface AveragePriceProcessingOptions extends PipelineOptions {

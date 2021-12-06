@@ -13,11 +13,13 @@ import java.util.Objects;
 public class ParDoFiltering {
 
     private static final String CSV_HEADER = "month,price";
-    public static void main(String[] args) {  // java main method
+
+    public static void main(String[] args) {    // java main method
 
         PipelineOptions pipelineOptions = PipelineOptionsFactory.create();
         Pipeline pipeline = Pipeline.create(pipelineOptions);
 
+        // applied pipeline to read the required file
         pipeline.apply("ReadingFile", TextIO.read().from("src/main/resources/sink2/google_stock_2020.csv"))
                 .apply("FilterHeader", Filter.by((String line) ->
                         !line.isEmpty() && !line.contains(CSV_HEADER)))
@@ -29,10 +31,10 @@ public class ParDoFiltering {
                         System.out.println(processContext.element());
                     }
                 }));
+        // run the pipeline for execution
         pipeline.run().waitUntilFinish();
         System.out.println("pipeline executed successFully");
     }
-
     private static class FilterBmwAndFordFn extends DoFn<String, String> {
 
         @ProcessElement
@@ -44,10 +46,10 @@ public class ParDoFiltering {
         }
     }
 
+    // method extended to DoFn
     private static class FilterPriceFn extends DoFn<String, String> {
 
         private final Double price;
-
         FilterPriceFn(Double price) {
             this.price = price;
         }

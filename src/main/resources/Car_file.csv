@@ -31,7 +31,7 @@ BMW,63000,crossover,0,2,Diesel,yes,2015,X5,full
 Mercedes-Benz,105999,crossover,0,2.98,Diesel,yes,2016,GLE-Class,full
 Nissan,13980,hatch,31,NA,Other,yes,2013,Leaf,front
 Nissan,17300,hatch,24,NA,Other,yes,2013,Leaf,front
-Volkswagen,10700,sedan,147,2,Petrol,yes,2007,Passat B6,front
+Volkswagen,10600,sedan,147,2,Petrol,yes,2007,Passat B6,front
 Audi,2600,vagon,273,2.5,Diesel,no,1999,A6,front
 Chrysler,13700,sedan,70,2.4,Petrol,yes,2008,Sebring,front
 Volkswagen,8999,sedan,120,2,Petrol,yes,2008,Passat B6,front
@@ -50,7 +50,7 @@ BMW,63500,crossover,1,2,Diesel,yes,2016,X5,full
 BMW,59900,crossover,30,2,Diesel,yes,2016,X5,full
 Mitsubishi,9200,crossover,110,2.4,Petrol,yes,2006,Outlander,full
 Nissan,20241.897,crossover,0,1.6,Petrol,yes,2015,Juke,front
-Mercedes-Benz,14490,vagon,212,2.2,Diesel,yes,2008,E-Class,rear
+Mercedes-Benz,15490,vagon,212,2.2,Diesel,yes,2008,E-Class,rear
 Mercedes-Benz,31500,sedan,123,2.2,Diesel,yes,2011,E-Class,
 Mercedes-Benz,0,crossover,0,3,Diesel,yes,2016,GLE-Class,full
 Volkswagen,8999,sedan,120,1.9,Diesel,yes,2007,Passat B6,front

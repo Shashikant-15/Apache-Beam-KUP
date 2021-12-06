@@ -4,6 +4,7 @@ import lombok.*;
 /**
  * Car is a POJO class which contains information about the car.
  */
+
 @Builder
 @Getter
 @Setter

@@ -16,7 +16,6 @@ public class AveragePriceGoogleStock_2020 {
 
     public static void main(String[] args) {
 
-
         final AveragePriceProcessingOptions averagePriceProcessingOptions = PipelineOptionsFactory
                 .fromArgs(args)
                 .withValidation()
@@ -24,6 +23,7 @@ public class AveragePriceGoogleStock_2020 {
 
         Pipeline pipeline = Pipeline.create(averagePriceProcessingOptions);
 
+        // applied pipeline to read the required file
         pipeline.apply("Read-Lines", TextIO.read()
                         .from(averagePriceProcessingOptions.getInputFile()))
                 .apply("Filter-Header", Filter.by((String line) ->
@@ -38,16 +38,18 @@ public class AveragePriceGoogleStock_2020 {
                 .apply("Format-result", MapElements
                         .into(TypeDescriptors.strings())
                         .via(stockCount -> stockCount.getKey() + "," + stockCount.getValue()))
+
+                // applied pipeline to write result the required file
                 .apply("WriteResult", TextIO.write()
                         .to(averagePriceProcessingOptions.getOutputFile())
                         .withoutSharding()
                         .withSuffix(".csv")
                         .withHeader("month,Avg_price"));
 
+        // run the pipeline
         pipeline.run();
         System.out.println("pipeline executed successfully");
     }
-
     public interface AveragePriceProcessingOptions extends PipelineOptions {
 
         @Description("Path of the file to read from")
