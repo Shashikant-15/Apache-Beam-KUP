@@ -1,7 +1,7 @@
 # README
 ### Clone the repo:
 ```
-git remote add origin https://github.com/Shashikant-15/Apache-Beam-KUP.git
+ https://github.com/Shashikant-15/Apache-Beam-KUP.git
 ```
 ## problem 2
 Write a Beam pipeline to read the given CSV file of car ad data and compute the average price of different Cars.
