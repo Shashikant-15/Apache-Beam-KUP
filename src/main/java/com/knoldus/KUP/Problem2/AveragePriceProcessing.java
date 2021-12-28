@@ -12,10 +12,9 @@ import org.apache.beam.sdk.transforms.Mean;
 import org.apache.beam.sdk.values.KV;
 import org.apache.beam.sdk.values.TypeDescriptors;
 import org.slf4j.LoggerFactory;
-
 import java.util.logging.Logger;
-
 import static com.knoldus.KUP.Problem2.AveragePriceProcessing.AveragePriceProcessingOptions.LOGGER;
+
 
 public class AveragePriceProcessing {
 

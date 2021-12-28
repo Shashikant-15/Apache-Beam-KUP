@@ -8,7 +8,6 @@ import org.apache.beam.sdk.transforms.DoFn;
 import org.apache.beam.sdk.transforms.Filter;
 import org.apache.beam.sdk.transforms.ParDo;
 import org.slf4j.LoggerFactory;
-
 import java.util.Objects;
 import java.util.logging.Logger;
 import static com.knoldus.KUP.Problem5.ParDoFiltering.FilterBmwAndFordFn.LOGGER;

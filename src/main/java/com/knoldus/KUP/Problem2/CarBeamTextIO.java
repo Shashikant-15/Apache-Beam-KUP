@@ -21,7 +21,7 @@ import java.util.Collections;
  TATA,112900.0
  */
 public class CarBeamTextIO {      // created own method  CarBeamTextIO for i/o
-
+   // LOGGER created  as static final here
     private static final Logger LOGGER = LoggerFactory.getLogger(CarBeamTextIO.class);
     private static final String CSV_HEADER = "car,price";
 

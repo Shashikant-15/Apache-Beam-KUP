@@ -50,6 +50,7 @@ public class GoogleStock_IO {
                         .withSuffix(".csv")
                         .withHeader("month,avg_price"));
 
+
         LOGGER.info("Executing pipeline");
         pipeline.run();
     }

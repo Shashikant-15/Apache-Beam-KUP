@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+
 /**
  *
  a Beam pipeline to read the given CSV file of car ad data and compute the average price of different Cars. Save the output in another CSV file with headers [car avg_price]
