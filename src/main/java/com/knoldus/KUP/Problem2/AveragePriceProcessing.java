@@ -6,9 +6,16 @@ import org.apache.beam.sdk.options.Default;
 import org.apache.beam.sdk.options.Description;
 import org.apache.beam.sdk.options.PipelineOptions;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
-import org.apache.beam.sdk.transforms.*;
+import org.apache.beam.sdk.transforms.Filter;
+import org.apache.beam.sdk.transforms.MapElements;
+import org.apache.beam.sdk.transforms.Mean;
 import org.apache.beam.sdk.values.KV;
 import org.apache.beam.sdk.values.TypeDescriptors;
+import org.slf4j.LoggerFactory;
+
+import java.util.logging.Logger;
+
+import static com.knoldus.KUP.Problem2.AveragePriceProcessing.AveragePriceProcessingOptions.LOGGER;
 
 public class AveragePriceProcessing {
 
@@ -49,11 +56,12 @@ public class AveragePriceProcessing {
                         .withHeader("car,Avg_price"));
 
         pipeline.run();
-        System.out.println("pipeline executed successfully");   // result outcomes message
+
+        LOGGER.info("pipeline executed successfully");   // result outcomes message
     }
 
     public interface AveragePriceProcessingOptions extends PipelineOptions {
-
+        Logger LOGGER = (Logger) LoggerFactory.getLogger(AveragePriceProcessingOptions.class);
         @Description("Path of the file to read from")
         @Default.String("src/main/resources/Car_file.csv")
         String getInputFile();

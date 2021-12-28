@@ -7,8 +7,12 @@ import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.beam.sdk.transforms.DoFn;
 import org.apache.beam.sdk.transforms.Filter;
 import org.apache.beam.sdk.transforms.ParDo;
+import org.slf4j.LoggerFactory;
 
 import java.util.Objects;
+import java.util.logging.Logger;
+
+import static com.knoldus.KUP.Problem5.ParDoFiltering.FilterBmwAndFordFn.LOGGER;
 
 public class ParDoFiltering {
 
@@ -33,10 +37,10 @@ public class ParDoFiltering {
                 }));
         // run the pipeline for execution
         pipeline.run().waitUntilFinish();
-        System.out.println("pipeline executed successFully");
+        LOGGER.info("pipeline executed successFully");
     }
-    private static class FilterBmwAndFordFn extends DoFn<String, String> {
-
+    static class FilterBmwAndFordFn extends DoFn<String, String> {
+        public static final Logger LOGGER = (Logger) LoggerFactory.getLogger(FilterBmwAndFordFn.class);
         @ProcessElement
         public void processElement(ProcessContext processContext) {
 

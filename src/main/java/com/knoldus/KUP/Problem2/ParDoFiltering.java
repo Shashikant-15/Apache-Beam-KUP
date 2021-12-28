@@ -7,10 +7,13 @@ import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.beam.sdk.transforms.DoFn;
 import org.apache.beam.sdk.transforms.Filter;
 import org.apache.beam.sdk.transforms.ParDo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Objects;
 
 public class ParDoFiltering {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(ParDoFiltering.class);
     // CSV HEADER initialize as String
     private static final String CSV_HEADER = "car,price";
     public static void main(String[] args) {              // java main method called
@@ -32,7 +35,7 @@ public class ParDoFiltering {
                     }
                 }));
         pipeline.run().waitUntilFinish();
-        System.out.println("pipeline executed successFully");
+        LOGGER.info("pipeline executed successFully");
     }
 
     public static class FilterBmwAndFordFn extends DoFn<String, String> {

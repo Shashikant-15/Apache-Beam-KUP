@@ -1,5 +1,6 @@
 package com.knoldus.KUP.Problem5;
 
+import com.knoldus.KUP.Problem2.CarMemoryClass;
 import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.io.TextIO;
 import org.apache.beam.sdk.options.Default;
@@ -9,8 +10,11 @@ import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.beam.sdk.transforms.*;
 import org.apache.beam.sdk.values.KV;
 import org.apache.beam.sdk.values.TypeDescriptors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AveragePriceGoogleStock_2020 {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AveragePriceGoogleStock_2020.class);
 
     private static final String CSV_HEADER = "Date,Open,High,Low,Close,Adj Close,Volume";
 
@@ -48,7 +52,7 @@ public class AveragePriceGoogleStock_2020 {
 
         // run the pipeline
         pipeline.run();
-        System.out.println("pipeline executed successfully");
+        LOGGER.info("pipeline executed successfully");
     }
     public interface AveragePriceProcessingOptions extends PipelineOptions {
 
