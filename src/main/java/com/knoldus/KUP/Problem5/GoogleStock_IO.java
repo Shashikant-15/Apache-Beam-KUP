@@ -21,7 +21,7 @@ import java.util.Collections;
  **/
 
 public class GoogleStock_IO {
-
+    // LOGGER initializes as private static final
     private static final Logger LOGGER = LoggerFactory.getLogger(GoogleStock_IO.class);
 
     // CSN_HEADER  initialized as private static

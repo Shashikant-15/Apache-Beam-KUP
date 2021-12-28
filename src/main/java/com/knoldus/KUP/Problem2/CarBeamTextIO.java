@@ -23,7 +23,6 @@ import java.util.Collections;
 public class CarBeamTextIO {      // created own method  CarBeamTextIO for i/o
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CarBeamTextIO.class);
-
     private static final String CSV_HEADER = "car,price";
 
     // main method called

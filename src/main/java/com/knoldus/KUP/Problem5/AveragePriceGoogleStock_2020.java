@@ -14,6 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AveragePriceGoogleStock_2020 {
+
+    // static final logger is initialise
     private static final Logger LOGGER = LoggerFactory.getLogger(AveragePriceGoogleStock_2020.class);
 
     private static final String CSV_HEADER = "Date,Open,High,Low,Close,Adj Close,Volume";

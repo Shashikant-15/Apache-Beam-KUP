@@ -23,6 +23,7 @@ import java.util.List;
  Tesla,176900.0
  TATA,112900.0
  */
+
 public class CarMemoryClass {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CarMemoryClass.class);

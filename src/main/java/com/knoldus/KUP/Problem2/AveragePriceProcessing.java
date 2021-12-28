@@ -59,7 +59,6 @@ public class AveragePriceProcessing {
 
         LOGGER.info("pipeline executed successfully");   // result outcomes message
     }
-
     public interface AveragePriceProcessingOptions extends PipelineOptions {
         Logger LOGGER = (Logger) LoggerFactory.getLogger(AveragePriceProcessingOptions.class);
         @Description("Path of the file to read from")

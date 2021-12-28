@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Objects;
 import java.util.logging.Logger;
-
 import static com.knoldus.KUP.Problem5.ParDoFiltering.FilterBmwAndFordFn.LOGGER;
 
 public class ParDoFiltering {
@@ -50,7 +49,7 @@ public class ParDoFiltering {
         }
     }
 
-    // method extended to DoFn
+    // method extended to  DoFn
     private static class FilterPriceFn extends DoFn<String, String> {
 
         private final Double price;

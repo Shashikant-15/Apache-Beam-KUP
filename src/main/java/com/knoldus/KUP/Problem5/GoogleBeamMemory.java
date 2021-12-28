@@ -16,7 +16,7 @@ import java.util.List;
 
 public class GoogleBeamMemory {
 
-        // LOGGER initializes as private
+        // LOGGER initializes as private static final
     private static final Logger LOGGER = LoggerFactory.getLogger(CarMemoryClass.class);
 
     //  main method called
